@@ -19,7 +19,7 @@ firmware:
 # Hint: use the "rd" ISO instead of the "std" ISO to enable containerd: https://github.com/lima-vm/alpine-lima/releases/
 containerd:
   system: false
-  user: true
+  user: false
 
 provision:
 - mode: system
