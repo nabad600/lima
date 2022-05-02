@@ -26,7 +26,7 @@ provision:
    #!/bin/sh
    sed -i 's/host.lima.internal.*/host.lima.internal host.docker.internal/' /etc/hosts
    curl -fsSL https://get.docker.com | sh
-   apk add uidmap dbus-user-session docker
+   apk add uidmap docker
 portForwards:
 - guestSocket: "/run/user/{{.UID}}/docker.sock"
   hostSocket: "{{.Dir}}/sock/docker.sock"
