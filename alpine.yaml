@@ -24,7 +24,7 @@ provision:
 - mode: system
   script: |
     #!/bin/sh
-    sed -i 's/host.lima.internal.*/host.lima.internal host.docker.internal/' /etc/hosts
+    #sed -i 's/host.lima.internal.*/host.lima.internal host.docker.internal/' /etc/hosts
  - mode: system
    script: |
    #!/bin/sh
