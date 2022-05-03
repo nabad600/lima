@@ -7,6 +7,15 @@ images:
   arch: "aarch64"
   digest: "sha512:3449965ae57cef13e9af7797c064431bfee1a5132f5f4c181ff72ab19bacdc870d66dda44511a8214ba17e1d1f554bb34ebeb55da923290cf6598980c4077941"
 
+provision:
+- mode: system
+script: |
+    #!/bin/bash
+    set -eux -o pipefail
+    command -v docker >/dev/null 2>&1 && exit 0
+    export DEBIAN_FRONTEND=noninteractive
+    apk add docker
+
 mounts:
 - location: "~"
 - location: "/tmp/lima"
@@ -21,11 +30,3 @@ containerd:
   system: false
   user: false
 
-provision:
-- mode: system
-script: |
-    #!/bin/bash
-    set -eux -o pipefail
-    command -v docker >/dev/null 2>&1 && exit 0
-    export DEBIAN_FRONTEND=noninteractive
-    apk add docker
